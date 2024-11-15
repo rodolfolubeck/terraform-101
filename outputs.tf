@@ -1,11 +1,11 @@
 output "bucket_name" {
-  value = aws_s3_bucket.s3_bucket_tf.bucket
+  value       = aws_s3_bucket.s3_bucket_tf.bucket
   description = "AWS S3 bucket name"
 }
 
 
 output "bucket_arn" {
-  value = aws_s3_bucket.s3_bucket_tf.arn
+  value       = aws_s3_bucket.s3_bucket_tf.arn
   description = "AWS S3 bucket ARN"
 }
 
