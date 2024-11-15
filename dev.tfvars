@@ -1,4 +1,4 @@
-environment   = "Dev"
+environment   = "dev"
 aws_region    = "sa-east-1"
 aws_profile   = "dev_full"
 instance_type = "t2.micro"

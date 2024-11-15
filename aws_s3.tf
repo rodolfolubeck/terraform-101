@@ -1,11 +1,12 @@
 resource "aws_s3_bucket" "s3_bucket_tf" {
-  bucket = "11-07-24-rlubeck"
+  bucket = "${random_pet.bucket.id}-${var.environment}"
 
-  tags = {
-    Environment = var.environment
-    Owner       = "Rodolfo Lubeck"
-    ManagedBy   = "Terraform"
-    UpdatedAt   = "2024-11-14"
-    Name        = "s3_bucket_tf"
-  }
+  tags = local.common_tags
+}
+
+resource "aws_s3_bucket_object" "s3_bucket_tf" {
+  bucket = aws_s3_bucket.s3_bucket_tf.bucket
+  key    = "config/${local.ip_filepath}"
+  source = local.ip_filepath
+  etag   = filemd5(local.ip_filepath)
 }
